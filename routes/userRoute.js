@@ -3,13 +3,13 @@ const express = require('express');
 const routes = express.Router();
 
 const {addUser,viewUser,deleteUser , updateUser } = require('../controllers/UserController');
-const { verifyToken, Admin } = require('../middleware/Auth');
+const { verifyToken, Admin, checkAdmin } = require('../middleware/Auth');
 
 
 routes.post('/adduser',addUser)
-routes.get('/viewuser',verifyToken,Admin,viewUser);
-routes.delete('/deleteuser',verifyToken,Admin,deleteUser)
-routes.put('/updateuser',verifyToken,Admin,updateUser)
+routes.get('/viewuser',verifyToken,checkAdmin,viewUser);
+routes.delete('/deleteuser',deleteUser)
+routes.put('/updateuser',updateUser) 
 
 
 
