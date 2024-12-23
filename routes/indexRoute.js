@@ -8,6 +8,6 @@ routes.use('/user',require('./userRoute'))
 
 routes.use('/post',require('./postRoute'))
 
-
+routes.use('/admin',require('./adminRoute'));
 
 module.exports = routes;
